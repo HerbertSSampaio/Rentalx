@@ -4,8 +4,18 @@ import { ICreateCategoryDTO } from "./ICategoriesRepository";
 class CategoriesRepository {
     private categories: Category[];
 
-    constructor() {
+    private static INSTANCE: CategoriesRepository;
+
+    private constructor() {
         this.categories = [];
+    }
+
+    public static getInstance(): CategoriesRepository {
+        if (!CategoriesRepository.INSTANCE) {
+            CategoriesRepository.INSTANCE = new CategoriesRepository();
+        }
+
+        return CategoriesRepository.INSTANCE;
     }
 
     create({ name, description }: ICreateCategoryDTO): void {
@@ -28,7 +38,7 @@ class CategoriesRepository {
         const category = this.categories.find(
             (category) => category.name === name
         );
-        return category;
+        return category as Category;
     }
 }
 
