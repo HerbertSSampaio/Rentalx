@@ -12,8 +12,8 @@
         "/categories": {
             "post": {
                 "tags": ["Category"],
-                "summary": "Create a category",
-                "description": "Create a new category",
+                "summary": "dasdasdas",
+                "description": "Creaefwtegory",
                 "requestBody": {
                     "content": {
                         "application/json": {
